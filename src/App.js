@@ -5,7 +5,7 @@ import ColorPicker from './components/ColorPicker/ColorPicker';
 import GameTimer from './components/GameTimer/GameTimer';
 import NewGameButton from './components/NewGameButton/NewGameButton';
 
-const colors = ['#7CCCE5', '#FDE47F', '#E04644', '#B576AD'];
+const colors = ['#47B1C0', '#FDE47F', '#ff0066', '#8255CB'];
 
 class App extends Component {
   constructor() {
@@ -18,7 +18,7 @@ class App extends Component {
       guesses: [this.getNewGuess()],
       code: this.genCode()
     };
-    this.handleColorSelections = this.handleColorSelections.bind(this);
+    
   }
 
   getNewGuess() {
@@ -42,7 +42,8 @@ class App extends Component {
   }
 
   //` Event Handlers
-  handleColorSelections(colorIdx){
+  //binding method ES2017
+  handleColorSelection = (colorIdx) => {
     this.setState({selColorIdx : colorIdx});
   }
 //Event Handler
@@ -60,7 +61,7 @@ class App extends Component {
             <ColorPicker
               colors={colors}
               selColorIdx={this.state.selColorIdx}
-              ColorSelection = {this.handleColorSelections}
+              ColorSelection = {this.handleColorSelection}
             />
             <GameTimer />
             <NewGameButton />

@@ -12,7 +12,7 @@ const ColorPicker = (props) => (
           backgroundColor: props.selColorIdx === idx ? 'white' : color,
           borderColor: color
         }}
-   
+        //eventListenr's are camel case
         onClick={() => props.ColorSelection(idx)}
         
       />
